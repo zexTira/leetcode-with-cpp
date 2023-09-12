@@ -1,1 +1,1 @@
-These are some solutions for each leetcode question, but maybe not the bests.
+These are some solutions for each leetcode question, but maybe not the best.
