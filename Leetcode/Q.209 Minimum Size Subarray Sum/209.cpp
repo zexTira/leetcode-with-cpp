@@ -1,5 +1,9 @@
 /*//
-//
+//  In this question we need two pointers as a sliding window to get things done.
+//  First we define the minimal length as the maximum integer, and move the right pointer, if the sum of numbers in this window reaches the target, 
+      record this length if it's shorter than the current length.
+//  Then we move the left pointer until the sum in this window smaller than the target, and move right pointer again.
+//  When right pointer reaches the end of the array, return final length value. If the length is still its initial value return 0.
 //*/
 
 class Solution {
