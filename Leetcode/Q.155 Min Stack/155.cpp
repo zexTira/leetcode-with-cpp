@@ -1,8 +1,11 @@
 /*//
-// First we check if the size of two arrays are identical, if not directly return false.
-//  Next we do conventional binary search, but here the target is the number located at the end position in each loop, to ensure that number at mid will be always smaller than that at end.
-     Finally if we cannot find the number till the last loop, mid will be at the only potision, where is the smallest value.
-//  And we need to check if the number at mid is the smallest number by comparing it to the previous one, in case we miss the result during the loop.
+//  In this question we implement a customized stack with almost the same operation as a conventional stack does, except that it is required to update the minimum value when pushing, popping or getting the top.
+//  So in these 3 operations we need to do a trick, if current value is smaller than minimum value, we push 2*currVal- minVal into the stack instead of strightly push it, and update minVal by its initial value. 
+      By doing this we can set a criterion which is the number be pushed into the stack can be always smaller than current minVal.
+      (It's a math problem, which can be described as if currVal<minVal, then currVal-minVal<0, and 2*currVal-minVal<currVal, and we need to have the result type been long long in case overflowing) 
+//  When we do popping, that criterion is necessary, we compare the top element and the minimum value, if the result meets the criterion, we pop it up and restore the second minimum value 
+      by reversely calculate that expression.
+//  And when we need the top element, just check if it is smaller than minimum Value, if so we return its value source minVal, otherwise return itself.
 //*/
 
 class MinStack {
@@ -22,8 +25,8 @@ public:
         }
         else if (val < minVal)
         {
-            st.push((long long)2 * val - minVal);
-            minVal = val;
+            st.push((long long)2 * val - minVal);   // topVal = 2 * currVal - prevval 
+            minVal = val;       // minVal = currVal
         }
         else
         {
@@ -36,7 +39,7 @@ public:
         st.pop();
         if (popped < minVal)
         {
-            minVal = 2 * minVal - popped;
+            minVal = 2 * minVal - popped;   // preval= 2 * currVal - topVal
         }
     }
 
