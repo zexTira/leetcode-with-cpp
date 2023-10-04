@@ -1,5 +1,8 @@
 /*//
-//  
+//  In this question we use number 2 and 3 to represent newly living/dead cells respectively, to meet the requirement of updating stimutaneously and avoid confusion with initially living/dead cells.
+//  We first implement a function to get all living neighbors no matter thay are newly living or initially living with 8 conditions, detecting all elements at 4 corners, 4 boarders and normal positions.
+//  After that we do our first update, check the number of neighbors of every element in the matrix, and have them died/lived as requirement, and remember to sigh these updated elements with 2 or 3.
+//  Finally we modify all updated elements to their initial status, from 2 to 0 and 3 to 1, that's all works done. 
 //*/
 
 class Solution {
