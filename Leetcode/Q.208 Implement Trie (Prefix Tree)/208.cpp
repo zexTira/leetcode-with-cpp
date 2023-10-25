@@ -1,8 +1,8 @@
 /*//
-//  This is a simple way to reverse a list node by node with 3 pointers.
-//  We need a pointer which indicates current node, and 2 pointers for its previous node and next node.
-//  Then we let the next node of current node be the previous node, and make current node the initial next node of current node, and previous node becomes current node.
-//  Do this loop until the end of the list.
+//  In trie data structure, we define a child node array representing next character and a bool vaule isWord representing if it is a word.
+//  For each input word, we push it in the each level of the trie in char sequence and when it comes to the last character, set the bool isWord of the node true.
+//  When we need to search, if we search for a whole word, we just need to check if the bool value of the node for last letter in the trie is true, and return the result.
+//  If we search for prefix, we should search for each letter in trie in sequence and check if there's corresponding child node for each letter.
 //*/
 
 struct TrieNode {
